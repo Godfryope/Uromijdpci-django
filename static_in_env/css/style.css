@@ -52,6 +52,11 @@ html,
       margin-top: 280px !important;
       margin-bottom: 500px;
     }
+    .success img {    
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
     .success h1 {
       text-align: center;

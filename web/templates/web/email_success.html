@@ -1,4 +1,5 @@
 {% extends 'web/base.html' %}
+{% load static %}
 {% load crispy_forms_tags %}
 
 {% block content %}
@@ -8,11 +9,12 @@
 
 
 
-    <div class="success"  style="color: #04203c;;" >
+    <div class="success" style="color: #04203c;">
+        <img src="{% static 'img/logo.png' %}" alt="">
         <h1 class="py-4">Thanks for contacting us you'll get a response soon</h1>
     </div>
 
-    <footer id="contact" class="page-footer text-md-left mdb-color darken-3">
+    <footer id="contact" class="page-footer text-md-left mdb-color darken-3 position-static">
 
         {% include 'web/copyright.html' %}
 
