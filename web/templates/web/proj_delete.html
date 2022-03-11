@@ -1,0 +1,28 @@
+{% extends 'web/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<body class="university-lp">
+
+    {% include 'web/navbar.html' %}
+
+
+
+    <div class="login p-5"  style="margin-bottom:280px; margin-top: 200px; color: #04203c;;" >
+        <h1 class="py-4">Delete post</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <p>Are you sure you want to delete <strong class="font-weight-bold" style="color: #04203c"> "{{ project.title }}"?</strong></p>
+            <input class="button_edit btn" type="submit" value="Confirm" />
+        </form>
+    </div>
+
+    <footer id="contact" class="page-footer text-md-left mdb-color darken-3">
+
+        {% include 'web/copyright.html' %}
+
+    </footer>
+</body>
+
+{% endblock content %}
+

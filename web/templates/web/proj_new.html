@@ -1,0 +1,26 @@
+{% extends 'web/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<body class="university-lp">
+
+    {% include 'web/navbar.html' %}
+
+    <div class="login edit align-items-center">
+        <h1 class=" offset-4">Create New Project</h1>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy }}
+            {{ form.media }}
+            <button class="btn btn-block fa-lg gradient-custom-2 mb-3" type="submit">Submit &raquo;</button>
+        </form>
+    </div>
+
+    <footer id="contact" class="page-footer text-md-left mdb-color darken-3">
+
+        {% include 'web/copyright.html' %}
+
+    </footer>
+
+</body>
+{% endblock content %}

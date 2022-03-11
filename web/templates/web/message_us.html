@@ -1,0 +1,28 @@
+<div class="contact-form article-comment">
+    <h4>Leave a message</h4>
+    <form id="contact-form" method="POST">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ form.subject }}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ form.from_email }}
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    {{ form.message }}
+                </div>
+            </div>
+            {% csrf_token %}
+            <div class="col-md-12">
+                <div class="send">
+                    <button class="px-btn theme" type="submit"><span>Submit</span> <i class="arrow"></i></button>
+                </div>
+            </div>
+        </div>
+    </form>
+  </div>
