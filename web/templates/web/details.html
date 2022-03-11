@@ -5,7 +5,7 @@
 {% block content %}
 <body class="university-lp">
 
-    {% include 'web/navbar.html' %}
+    {% include 'web/navbar2.html' %}
     {% if user.is_staff %}
     <div style="margin-top:65px; padding: 0;">
         <div style="margin: 0;" class="row p-0">
@@ -18,7 +18,7 @@
         </div>
     </div>
     {% endif %}
-    <div class="blog-single gray-bg">
+    <div class="blog-single bg-white">
         <div class="container">
             <div class="align-items-start">
                 <div class="m-15px-tb">
@@ -52,7 +52,7 @@
                     </article>
                     <div class="contact-form article-comment">
                         <h4>Leave a Reply</h4>
-                        <form id="contact-form" method="POST">
+                        <form id="contact-form" method="">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">

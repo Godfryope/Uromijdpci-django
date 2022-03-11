@@ -4,10 +4,10 @@
 {% block content %}
 <body class="university-lp">
 
-    {% include 'web/navbar.html' %}
+    {% include 'web/navbar2.html' %}
 
     <div class="login edit align-items-center">
-        <h1 class=" offset-4">Create New Project</h1>
+        <h1 class="edit_header">Create New Project</h1>
         <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form|crispy }}

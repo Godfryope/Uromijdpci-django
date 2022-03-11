@@ -237,12 +237,12 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 # LOGOUT_REDIRECT_URL = 'home'
 
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_USE_TLS = True
+# EMAIL_USE_TLS = False
 # EMAIL_HOST = 'smtp.gmail.com'
 # EMAIL_HOST_USER = 'elolengodfrey@gmail.com'
 # EMAIL_HOST_PASSWORD = 'mljbedavcqzykotm'
-# EMAIL_PORT = 587
-# EMAIL_USE_SSL = False
+# EMAIL_PORT = 465
+# EMAIL_USE_SSL = True
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -289,7 +289,7 @@ USE_TZ = True
 
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': 'full',
+        # 'toolbar': 'full',
         'width': 'auto'
     },
 }

@@ -30,7 +30,7 @@ def contactView(request):
     }
     return render(request, "web/index.html", context)
 def successView(request):
-    return HttpResponse("<h1>Thanks for messaging us</h1>" )
+    return render(request, 'web/email_success.html' )
 
 
 # class ProjectListView(ListView):

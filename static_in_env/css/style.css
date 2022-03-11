@@ -48,6 +48,17 @@ html,
       height: 200px;
     }
 
+    .success {
+      margin-top: 280px !important;
+      margin-bottom: 500px;
+    }
+
+    .success h1 {
+      text-align: center;
+      font-weight: bold;
+    }
+
+
 
     @media (max-width: 650px) {
       .jarallax {
@@ -55,6 +66,16 @@ html,
         margin-bottom: 0;
       }
 
+      .success {
+        margin-top: 270px !important;
+        margin-bottom: 280px;
+      }
+
+      .success h1 {
+        font-size: larger;
+        padding: 20px;
+      }
+      
       .wow {
         align-items: center !important;
         
@@ -574,8 +595,6 @@ html,
     color: white;
   }
 
-  .login 
-
   .edit h1 {
     /* background: #04203c; */
     color:#04203c;
@@ -618,6 +637,11 @@ html,
       margin-left: 40px;
       margin-right: 40px;
       width: fit-content;
+    }
+
+    .edit_header {
+      font-size: xx-large !important;
+      font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
 
     .login .button {

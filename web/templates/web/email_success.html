@@ -1,0 +1,23 @@
+{% extends 'web/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<body class="university-lp">
+
+    {% include 'web/navbar2.html' %}
+
+
+
+    <div class="success"  style="color: #04203c;;" >
+        <h1 class="py-4">Thanks for contacting us you'll get a response soon</h1>
+    </div>
+
+    <footer id="contact" class="page-footer text-md-left mdb-color darken-3">
+
+        {% include 'web/copyright.html' %}
+
+    </footer>
+</body>
+
+{% endblock content %}
+

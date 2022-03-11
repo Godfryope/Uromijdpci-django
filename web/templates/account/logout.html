@@ -1,21 +1,41 @@
-{% extends "account/base.html" %}
+{% extends "web/base.html" %}
 
 {% load i18n %}
+{% load account socialaccount %}
+{% load crispy_forms_tags %}
+{% load static %}
 
-{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Sign Out" %}</h1>
+<body class="university-lp">
 
-<p>{% trans 'Are you sure you want to sign out?' %}</p>
+  {% include 'web/navbar2.html' %}
 
-<form method="post" action="{% url 'account_logout' %}">
-  {% csrf_token %}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-  {% endif %}
-  <button type="submit">{% trans 'Sign Out' %}</button>
-</form>
+  <div class="login p-5 m-2">
 
+    <div class="my-4 ">
+      <h1>{% trans "Sign Out" %}</h1>
+
+      <p>{% trans 'Are you sure you want to sign out?' %}</p>
+
+      <form method="post" action="{% url 'account_logout' %}">
+        {% csrf_token %}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+        {% endif %}
+        <button class="btn button" type="submit">{% trans 'Sign Out' %}</button>
+      </form>
+    </div>
+
+  </div>
+
+  <footer id="contact" class="page-footer text-md-left mdb-color darken-3">
+
+    {% include 'web/copyright.html' %}
+
+  </footer>
+</body>
 
 {% endblock %}
