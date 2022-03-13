@@ -570,13 +570,14 @@ html,
 
   .button_edit {
     /* color: white !important; */
-    background: #04203c !important;
+    /* background: #04203c !important; */
     color: white !important;
     margin-top: 40px !important;
   }
 
   .button_edit a {
-    color: white !important;
+    color: #04203c !important;
+    font-weight:bolder;
   }
 
   .login {
@@ -620,6 +621,10 @@ html,
 
   .testimonial p {
     font-size: small !important;
+  }
+
+  .signout {
+    
   }
 
   /* .contact-form {

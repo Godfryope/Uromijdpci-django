@@ -1,86 +1,101 @@
 {% extends 'web/base.html' %}
 {% load static %}
-
-
 {% block content %}
-<body class="university-lp">
 
-    {% include 'web/navbar2.html' %}
-    {% if user.is_staff %}
-    <div style="margin-top:65px; padding: 0;">
-        <div style="margin: 0;" class="row p-0">
-            <div class="button_edit col-6 btn btn-block fa-lg w-50 px-1">
-                <a class="edit_proj" href="{% url 'proj_edit' object.pk %}">+ Edit Project</a>
+    <body class="university-lp">
+        {% include 'web/navbar2.html' %}
+        {% if user.is_staff %}
+            <div style="margin-top:65px; padding: 0;">
+                <div style="margin: 0;" class="row p-0">
+                    <div class="button_edit col-6 btn btn-block fa-lg w-50 px-1 darken-3">
+                        <a class="edit_proj" href="{% url 'proj_edit' object.pk %}">+ Edit Project</a>
+                    </div>
+                    <div class="button_edit col-6 btn btn-block fa-lg">
+                        <a class="delete_proj" href="{% url 'proj_delete' object.pk %}">- delete project</a>
+                    </div>
+                </div>
             </div>
-            <div class="button_edit col-6 btn btn-block fa-lg">
-                <a class="delete_proj" href="{% url 'proj_delete' object.pk %}">- delete project</a>
-            </div>
-        </div>
-    </div>
-    {% endif %}
-    <div class="blog-single bg-white">
-        <div class="container">
-            <div class="align-items-start">
-                <div class="m-15px-tb">
-                    <article class="article">
-                        <div class="article-img align-items-center">
-                            <img src="{{project.image.url}}" title="" alt="">
-                        </div>
-                        <div class="article-title">
-                            <h6><a href="#">Uromijdpci</a></h6>
-                            <h2>{{ project.projectTitle | safe }}</h2>
-                            <div class="media">
-                                <div class="media-body">
-                                    <label>{{ project.projectBrief|safe }}</label>
-                                    <span>{{ project.timestamp|date:"d M, Y"}}</span>
+        {% endif %}
+        <div class="blog-single bg-white">
+            <div class="container">
+                <div class="align-items-start">
+                    <div class="m-15px-tb">
+                        <article class="article">
+                            <div class="article-img align-items-center">
+                                <img src="{{ project.image.url }}" title="" alt="">
+                            </div>
+                            <div class="article-title">
+                                <h6>
+                                    <a href="#">Uromijdpci</a>
+                                </h6>
+                                <h2>{{ project.projectTitle | safe }}</h2>
+                                <div class="media">
+                                    <div class="media-body">
+                                        <label>{{ project.projectBrief|safe }}</label>
+                                        <span>{{ project.timestamp|date:"d M, Y" }}</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="article-content">
-                            <p>{{ project.content | safe }}</p>
-                            
-                        </div>
-                        <div class="nav tag-cloud">
-                            <a href="#">Integrity</a>
-                            <a href="#">Accountability</a>
-                            <a href="#">Transparency</a>
-                            <a href="#">Excellence</a>
-                            <!-- <a href="#">Marketing</a>
+                            <div class="article-content">
+                                <p>
+                                    {{ project.content | safe }}
+                                </p>
+                            </div>
+                            <div class="nav tag-cloud">
+                                <a href="#">Integrity</a>
+                                <a href="#">Accountability</a>
+                                <a href="#">Transparency</a>
+                                <a href="#">Excellence</a>
+                                <!-- <a href="#">Marketing</a>
                             <a href="#">Research</a>
                             <a href="#">Managment</a> -->
-                        </div>
-                    </article>
-                    <div class="contact-form article-comment">
-                        <h4>Leave a Reply</h4>
-                        <form id="contact-form" method="">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input name="Name" id="name" placeholder="Name *" class="form-control" type="text">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input name="Email" id="email" placeholder="Email *" class="form-control" type="email">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <textarea name="message" id="message" placeholder="Your message *" rows="4" class="form-control"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="send">
-                                        <button class="px-btn theme"><span>Submit</span> <i class="arrow"></i></button>
-                                    </div>
-                                </div>
                             </div>
-                        </form>
+                        </article>
+                        <div class="contact-form article-comment">
+                            <h4>Leave a Reply</h4>
+                            <form id="contact-form" method="">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input name="Name"
+                                                   id="name"
+                                                   placeholder="Name *"
+                                                   class="form-control"
+                                                   type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input name="Email"
+                                                   id="email"
+                                                   placeholder="Email *"
+                                                   class="form-control"
+                                                   type="email">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <textarea name="message"
+                                                      id="message"
+                                                      placeholder="Your message *"
+                                                      rows="4"
+                                                      class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="send">
+                                            <button class="px-btn theme">
+                                                <span>Submit</span> <i class="arrow"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-   {% include 'web/footer.html' %}
-</body>
+        {% include 'web/footer.html' %}
+    </body>
 {% endblock content %}

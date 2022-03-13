@@ -1,59 +1,55 @@
 {% load static %}
-
 <div class="container-fluid background-r">
     <div class="container py-3">
-
-      <!--Section: Blog v.2-->
-      <section class="extra-margins text-center" id="projects">
-
-        <h2 class="text-center mb-5 my-5 pt-4 pb-4 font-weight-bold"> Top Projects</h2>
-
-        <!--Grid row-->
-        <div class="row mb-5 pb-3">
-          
-          {% for list in project_data %}
-          <!--Grid column-->
-          <div class="col-lg-3 col-md-6 mb-4 wow fadeIn" data-wow-delay="0.4s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.4s;">
-
-            <!--Card Light-->
-            <div class="card">
-              <!--Card image-->
-              <div class="view overlay">
-                <img src="{{list.image.url}}" class="card-img-top" alt="">
-                <a>
-                  <div class="mask rgba-white-slight waves-effect waves-light"></div>
-                </a>
-              </div>
-              <!--/.Card image-->
-              <!--Card content-->
-              <div class="card-body">
-
-                <!--Title-->
-                <h4 class="card-title darkgrey-text">
-                  <strong>{{list.title}}</strong>
-                </h4>
-                <hr>
-                <!--Text-->
-                <p class="font-small">{{list.overview|safe|truncatewords:"60"|linebreaks}}</p>
-                <a href="{{ list.get_absolute_url }}" class="d-flex flex-row-reverse">
-                  <p class="waves-effect p-2 read_more font-small mb-0">Read more
-                    <i class="fas fa-long-arrow-alt-right ml-2" aria-hidden="true"></i>
-                  </p>
-                </a>
-              </div>
-              <!--/.Card content-->
+        <!--Section: Blog v.2-->
+        <section class="extra-margins text-center" id="projects">
+            <h2 class="text-center mb-5 my-5 pt-4 pb-4 font-weight-bold">Top Projects</h2>
+            <!--Grid row-->
+            <div class="row mb-5 pb-3">
+                {% for list in project_data %}
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-4 mb-4 wow fadeIn"
+                         data-wow-delay="0.4s"
+                         style="visibility: visible;
+                                animation-name: fadeIn;
+                                animation-delay: 0.4s;">
+                        <!--Card Light-->
+                        <div class="card">
+                            <!--Card image-->
+                            <div class="view overlay">
+                                <img src="{{ list.image.url }}" class="card-img-top" alt="">
+                                <a>
+                                    <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                                </a>
+                            </div>
+                            <!--/.Card image-->
+                            <!--Card content-->
+                            <div class="card-body">
+                                <!--Title-->
+                                <h4 class="card-title darkgrey-text">
+                                    <strong>{{ list.title }}</strong>
+                                </h4>
+                                <hr>
+                                <!--Text-->
+                                <p class="font-small">
+                                    {{ list.overview|safe|truncatewords:"60"|linebreaks }}
+                                </p>
+                                <a href="{{ list.get_absolute_url }}" class="d-flex flex-row-reverse">
+                                    <p class="waves-effect p-2 read_more font-small mb-0">
+                                        Read more
+                                        <i class="fas fa-long-arrow-alt-right ml-2" aria-hidden="true"></i>
+                                    </p>
+                                </a>
+                            </div>
+                            <!--/.Card content-->
+                        </div>
+                        <!--/.Card Light-->
+                    </div>
+                    <!--Grid column-->
+                {% endfor %}
             </div>
-            <!--/.Card Light-->
-
-          </div>
-          <!--Grid column-->
-          {% endfor %}
-
-        </div>
-        <!--First row-->
-
-      </section>
-      <!--Section: Blog v.2-->
-
+            <!--First row-->
+        </section>
+        <!--Section: Blog v.2-->
     </div>
-  </div>
+</div>
