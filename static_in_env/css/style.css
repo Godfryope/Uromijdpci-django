@@ -163,6 +163,12 @@ html,
   .blog-grid .blog-img {
     position: relative;
   }
+
+  .blog-grid .feed_img {
+    max-height: 200px;
+    width: fit-content;
+  }
+
   .blog-grid .blog-img .date {
     position: absolute;
     background: #fc5356;
