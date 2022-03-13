@@ -11,7 +11,8 @@ from .forms import ContactForm
 # Create your views here.
 def contactView(request):
     if request.method == 'GET':
-        project_data = Project.objects.all()
+        project_data = Project.objects.filter(newsfeed=False)
+        newsfeed = Project.objects.filter(newsfeed=True)
         form = ContactForm()
     else:
         form = ContactForm(request.POST)
@@ -25,8 +26,9 @@ def contactView(request):
                 return HttpResponse('Invalid header found.')
             return redirect('success')
     context = { 
-        "project_data": project_data, 
+        "project": project_data, 
         'form': form,
+        'feed': newsfeed,
     }
     return render(request, "web/index.html", context)
 def successView(request):
