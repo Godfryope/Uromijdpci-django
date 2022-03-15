@@ -184,6 +184,11 @@ html,
     line-height: 22px;
     font-weight: 700;
   }
+
+  .blog-grid .blog-img img {
+    max-width: auto;
+    max-height: 160px;
+  }
   .blog-grid .blog-img .date label {
     font-size: 14px;
     margin: 0;
