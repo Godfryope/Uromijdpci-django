@@ -14,17 +14,7 @@ def contactView(request):
     if request.method == 'GET':
         project_data = Project.objects.filter(newsfeed=False)
         newsfeed = Project.objects.filter(newsfeed=True)
-        paginator = Paginator(project_data, 3)
         form = ContactForm()
-        page = request.GET.get('page')
-        try:
-            page_obj = paginator.page(page)
-        except PageNotAnInteger:
-                # If page is not an integer deliver the first page
-            page_obj = paginator.page(1)
-        except EmptyPage:
-            # If page is out of range deliver last page of results
-            page_obj = paginator.page(paginator.num_pages)
     else:
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -40,7 +30,6 @@ def contactView(request):
         "project": project_data, 
         'form': form,
         'feed': newsfeed,
-        'page_obj': page_obj,
     }
     return render(request, "web/index.html", context)
 def successView(request):
