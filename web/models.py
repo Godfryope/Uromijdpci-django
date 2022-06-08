@@ -1,4 +1,3 @@
-from tkinter import CASCADE
 from django.conf import Settings
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -17,7 +16,7 @@ class Project(models.Model):
     image = models.ImageField(blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     newsfeed = models.BooleanField(null=True, blank=True, default=False)
-    
+
     # comment_count = models.IntegerField(default=0)
     # author = models.ForeignKey(Author, auto_created=True, on_delete=models.CASCADE)
     # views = models.IntegerField(default=0)

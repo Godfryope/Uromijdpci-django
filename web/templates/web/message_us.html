@@ -1,78 +1,85 @@
 {% load static %}
-  
+
 <div class="container-fluid">
     <div class="container py-3">
-        <h2 class="text-center mb-5 my-5 pt-4 pb-4 font-weight-bold">Events</h2>
-        <section class="blog-listing">
-            <div class="container">
-                <div class="row align-items-start">
-                    {% for list in feed  %}
-                    <div class="col-lg-3 col-sm-4">
-                        <div class="blog-grid">
-                            <div class="blog-img">
-                                <div class="date">
-                                    <span>{{ list.timestamp|date:"d"}}</span>
-                                    <label>{{ list.timestamp|date:"M"}}</label>
+        <div class="row">
+            <div class="col-lg-8 col-sm-8">
+                <h2 class="text-center mb-5 my-5 pt-4 pb-4 font-weight-bold">Events</h2>
+                <section class="blog-listing">
+                    <div class="container overflow-auto proj_scroll_area">
+                        <div class="row align-items-start">
+                            {% for list in feed  %}
+                            <div class="col-lg-4 col-sm-6 col-md-6 mb-4 wow fadeIn">
+                                <div class="blog-grid">
+                                    <div class="blog-img">
+                                        <!-- <div class="date">
+                                            <span>{{ list.timestamp|date:"d"}}</span>
+                                            <label>{{ list.timestamp|date:"M"}}</label>
+                                        </div>-->
+                                        <a href="#">
+                                            <img class="feed_img" src="{{ list.image.url }}" title="" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="blog-info">
+                                        <h6>
+                                            <a class="font-weight-bold" href="{{ list.get_absolute_url }}">{{ list.title }}</a>
+                                        </h6>
+                                        <div class="btn-bar">
+                                            <p class="py-1">{{ list.overview|safe }}</p>
+                                            <a class="pt-2" href="{{ list.get_absolute_url }}" class="px-btn-arrow">
+                                                <span>Read More</span>
+                                                <i class="arrow"></i>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <a href="#">
-                                    <img class="feed_img" src="{{ list.image.url }}" title="" alt="">
-                                </a>
                             </div>
-                            <div class="blog-info">
-                                <h5>
-                                    <a href="{{ list.get_absolute_url }}">{{ list.title }}</a>
-                                </h5>
-                                <div class="btn-bar">
-                                    <a href="{{ list.get_absolute_url }}" class="px-btn-arrow">
-                                        <span>Read More</span>
-                                        <i class="arrow"></i>
-                                    </a>
+                            {% endfor %}
+                            <!-- <div class="col-12">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
+                                </li>
+                            </ul>
+                        </div> -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-4 col-sm-4 mb-5 my-5 pt-4 pb-4">
+                <div class="mt-lg-5 contact-form article-comment">
+                    <h4>Leave a message</h4>
+                    <form id="contact-form" method="POST">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">{{ form.subject }}</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">{{ form.from_email }}</div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">{{ form.message }}</div>
+                            </div>
+                            {% csrf_token %}
+                            <div class="col-md-12">
+                                <div class="send">
+                                    <button class="px-btn theme" type="submit">
+                                        <span>Submit</span> <i class="arrow"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    {% endfor %}
-                    <!-- <div class="col-12">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-                            </li>
-                        </ul>
-                    </div> -->
-                </div>
-            </div>
-        </section>
-    </div>
-</div>
-<div class="contact-form article-comment mt-md-0">
-    <h4>Leave a message</h4>
-    <form id="contact-form" method="POST">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">{{ form.subject }}</div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">{{ form.from_email }}</div>
-            </div>
-            <div class="col-md-12">
-                <div class="form-group">{{ form.message }}</div>
-            </div>
-            {% csrf_token %}
-            <div class="col-md-12">
-                <div class="send">
-                    <button class="px-btn theme" type="submit">
-                        <span>Submit</span> <i class="arrow"></i>
-                    </button>
+                    </form>
                 </div>
             </div>
         </div>
-    </form>
+    </div>
 </div>

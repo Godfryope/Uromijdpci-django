@@ -2,7 +2,7 @@
 
 <!--SCRIPTS-->
 
-<script type="text/javascript" src="{% static 'js/all.js' %}"></script> 
+<script type="text/javascript" src="{% static 'js/all.js' %}"></script>
 <!--JQuery-->
 <script type="text/javascript" src="{% static 'js/jquery-3.4.0.min.js' %}"></script>
 
@@ -14,6 +14,8 @@
 
 <!--MDB core JavaScript-->
 <script type="text/javascript" src="{% static 'js/mdb.min.js' %} "></script><div class="hiddendiv common"></div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
 <script>
   //Animation init
@@ -29,4 +31,20 @@
     $('.mdb-select').material_select();
   });
 
+</script>
+<script type="text/javascript">
+  $(window).on('scroll',function(){
+      if($(window).scrollTop()){
+          $('nav').addClass('bluej');
+      }
+      else{
+          $('nav').removeClass('bluej');
+      }
+  })
+/*menu button onclick function*/
+$(document).ready(function(){
+          $('.menu h4').click(function(){
+              $("nav ul").toggleClass("active")
+      })
+      })
 </script>

@@ -14,7 +14,15 @@ def contactView(request):
     if request.method == 'GET':
         project_data = Project.objects.filter(newsfeed=False)
         newsfeed = Project.objects.filter(newsfeed=True)
+        # page = request.GET.get('page', 1)
+        # paginator = Paginator(project_data, 4)
         form = ContactForm()
+        # try:
+        #     project_data = paginator.page(page)
+        # except PageNotAnInteger:
+        #     project_data = paginator.page(1)
+        # except EmptyPage:
+        #     project_data = paginator.page(paginator.num_pages)
     else:
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -26,8 +34,8 @@ def contactView(request):
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect('success')
-    context = { 
-        "project": project_data, 
+    context = {
+        "project": project_data,
         'form': form,
         'feed': newsfeed,
     }

@@ -3,45 +3,49 @@
 
 
 {% block content %}
-<body class="university-lp">
 
     <!--Navigation & Intro-->
     <header>
 
       {% include 'web/navbar.html' %}
-  
+
+
       {% include 'web/intro_section.html' %}
-  
-  
+
+
     </header>
     <!--Navigation & Intro-->
-  
+
     <!--Main content-->
-    <main>
-  
+    <main style="background: white;">
+
       <div class="container">
 
         {% include 'web/about.html' %}
-  
+
         <hr>
-  
+
         {% include 'web/goals.html' %}
-  
+
       </div>
-  
-      {% include 'web/streak.html' %}
-  
-      {% include 'web/projects.html' %}
-  
-      {% include 'web/team.html' %}
 
       <hr>
 
-      {% include 'web/message_us.html' %}  
-  
+      {% include 'web/projects.html' %}
+
+      <hr>
+
+      {% include 'web/streak.html' %}
+
+      <hr>
+      {% include 'web/message_us.html' %}
+
+      <hr>
+
+      {% include 'web/team.html' %}
+
     </main>
     <!--Main content-->
-  
+
     {% include 'web/footer.html' %}
-</body>
 {% endblock content %}

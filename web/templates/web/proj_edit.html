@@ -1,29 +1,21 @@
 {% extends 'web/base.html' %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% block content %}
-<body class="university-lp">
+<div class="m-0">
+    <div class="wrapper2">
 
-    {% include 'web/navbar2.html' %}
-
-
-
-    <div class="login edit align-items-center">
-        <h1 class="edit_header">Edit Project</h1>
-        <form action="" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form|crispy }}
-            {{ form.media }}
-            <button class="btn btn-block fa-lg gradient-custom-2 mdb-color darken-3" type="submit">Submit &raquo;</button>
-        </form>
+        <div class="align-items-center mx-auto">
+            <h1 class="text-center edit_header">Edit Project</h1>
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+                {{ form.media }}
+                <button style="background-image: url('{% static 'img/blue-bg.jpg' %} '); background-repeat: no-repeat; background-size: cover; background-position: center center; z-index: 0;" class="btn btn-block fa-lg gradient-custom-2 mdb-color darken-3 text-white" type="submit">Submit &raquo;</button>
+            </form>
+        </div>
     </div>
-
-    <footer id="contact" class="page-footer text-md-left mdb-color darken-3">
-
-        {% include 'web/copyright.html' %}
-
-    </footer>
-</body>
-
+</div>
 {% endblock content %}
 

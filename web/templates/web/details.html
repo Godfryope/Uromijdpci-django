@@ -1,34 +1,32 @@
 {% extends 'web/base.html' %}
 {% load static %}
 {% block content %}
-
-    <body class="university-lp">
-        {% include 'web/navbar2.html' %}
+    <div class="bg-white">
         {% if user.is_staff %}
-            <div style="margin-top:65px; padding: 0;">
-                <div style="margin: 0;" class="row p-0">
-                    <div class="button_edit col-6 btn btn-block fa-lg w-50 px-1 darken-3">
+            <div class="p-0 m-0 bg-white">
+                <div style="margin:0;" class="row p-0">
+                    <div class="button_edit col-6 btn btn-block fa-lg">
                         <a class="edit_proj" href="{% url 'proj_edit' object.pk %}">+ Edit Project</a>
                     </div>
-                    <div class="button_edit col-6 btn btn-block fa-lg">
+                    <div class="button_edit px-1 col-6 btn btn-block fa-lg">
                         <a class="delete_proj" href="{% url 'proj_delete' object.pk %}">- delete project</a>
                     </div>
                 </div>
             </div>
         {% endif %}
-        <div class="blog-single bg-white">
-            <div class="container">
-                <div class="align-items-start">
-                    <div class="m-15px-tb">
+        <div class="bg-white">
+            <div>
+                <div class="container-fluid">
+                    <div>
                         <article class="article">
-                            <div class="article-img align-items-center">
-                                <img src="{{ project.image.url }}" title="" alt="">
+                            <div class="article-img align-items-center mt-3">
+                                <img class="mx-auto d-block" src="{{ project.image.url }}" title="" alt="">
                             </div>
                             <div class="article-title">
                                 <h6>
                                     <a href="#">Uromijdpci</a>
                                 </h6>
-                                <h2>{{ project.projectTitle | safe }}</h2>
+                                <h2 class="text-center">{{ project.projectTitle | safe }}</h2>
                                 <div class="media">
                                     <div class="media-body">
                                         <label>{{ project.projectBrief|safe }}</label>
@@ -96,6 +94,5 @@
                 </div>
             </div>
         </div>
-        {% include 'web/footer.html' %}
-    </body>
+    </div>
 {% endblock content %}

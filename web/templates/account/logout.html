@@ -1,41 +1,33 @@
-{% extends "web/base.html" %}
+{% extends "web/base.html" %} {% load i18n %} {% load account socialaccount %} {% load crispy_forms_tags %} {% load static %} {% block head_title %}{% trans "Sign In" %}{% endblock %} {% block content %}
 
-{% load i18n %}
-{% load account socialaccount %}
-{% load crispy_forms_tags %}
-{% load static %}
+<div class="bg-others m-0">
+    <div class="wrapper">
+        <div class="logo">
+            <img src="{% static 'img/logo2.png' %}" alt="">
+        </div>
 
+        <div class="signout p-5">
 
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
+            <div class="text-center">
 
-{% block content %}
-<body class="university-lp">
+                <p>{% trans 'Are you sure you want to sign out?' %}</p>
 
-  {% include 'web/navbar2.html' %}
+                <form method="post" action="{% url 'account_logout' %}">
+                    {% csrf_token %} {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> {% endif %}
+                    <div class="row">
+                        <div class="col-6">
+                            <a href="/" class="btn mt-3 px-0">No</a>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn mt-3 p-0" type="submit">Yes</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
 
-  <div style="margin-top: 200px; margin-bottom: 300px;" class="signout p-5">
-
-    <div class="my-4 text-center">
-      <h2>{% trans "Sign Out" %}</h2>
-
-      <p>{% trans 'Are you sure you want to sign out?' %}</p>
-
-      <form method="post" action="{% url 'account_logout' %}">
-        {% csrf_token %}
-        {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-        {% endif %}
-        <button class="btn mdb-color darken-3 text-white btn-rounded p-2" type="submit">{% trans 'Sign Out' %}</button>
-      </form>
+        </div>
     </div>
-
-  </div>
-
-  <footer id="contact" class="page-footer text-md-left mdb-color darken-3">
-
-    {% include 'web/copyright.html' %}
-
-  </footer>
-</body>
+</div>
 
 {% endblock %}

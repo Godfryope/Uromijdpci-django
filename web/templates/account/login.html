@@ -1,50 +1,38 @@
 {% extends "web/base.html" %}
-
 {% load i18n %}
 {% load account socialaccount %}
 {% load crispy_forms_tags %}
 {% load static %}
-
-
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
-
+{% block head_title %}
+    {% trans "Sign In" %}
+{% endblock %}
 {% block content %}
-<body class="university-lp">
+{% load widget_tweaks %}
 
-  {% include 'web/navbar2.html' %}
-
-  <div class="login p-5">
-
-    <div class="my-4">
-
-      <form method="POST" action="{% url 'account_login' %}">
-        {% csrf_token %}
-        {{ form | crispy }}
-        {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-        {% endif %}
-
-        <div class="text-center pt-1 mb-5 pb-1">
-          <button class="btn btn-block fa-lg gradient-custom-2 mb-3" type="submit">{% trans "Sign In" %}</button>
-          <a class="text-muted" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-        </div>
-
-      </form>
-
-      <div class="d-flex align-items-center justify-content-center pb-4">
-        <p class="mb-0 me-2">Don't have an account?</p>
-        {% blocktrans %}<a class="btn button mdb-color darken-3" href="{{ signup_url }}">Signup</a>{% endblocktrans %}
-      </div>
-
-
+<div class="bg-others m-0">
+  <div class="wrapper">
+    <div class="logo">
+        <img src="{% static 'img/logo2.png' %}" alt="">
     </div>
-
+    <div class="text-center mt-4 name">Uromi JDPCI</div>
+    <form class="p-3 mt-3 " method="POST" action="{% url 'account_login' %}">
+      {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+      {% endif %}
+      <div class="form-field d-flex align-items-center">
+          <span class="far fa-user"></span>
+          {{ form.login|attr:"type:text"|attr:"placeholder:Username"|attr:"name:userName"|attr:"id:userName" }}
+      </div>
+      <div class="form-field d-flex align-items-center">
+        <span class="fas fa-key"></span>
+        {{ form.password|attr:"type:password"|attr:"placeholder:Password"|attr:"name:password"|attr:"id:pwd" }}
+      </div>
+      {% csrf_token %}
+      <button class="btn mdb-color darken-3 mt-3" type="submit">{% trans "Sign In" %}</button>
+    </form>
+    <div class="text-center fs-6">
+        <a href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a> or <a href="{{ signup_url }}">Signup</a>
+    </div>
   </div>
-
-  <footer id="contact" class="page-footer text-md-left mdb-color darken-3">
-
-    {% include 'web/copyright.html' %}
-
-  </footer>
-</body>
+</div>
 {% endblock %}
