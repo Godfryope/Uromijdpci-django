@@ -43,6 +43,11 @@ header,
     text-align: left;
 }
 
+a.nav-link {
+    color:#A2A2A1FF !important;
+    font-family: 'Crimson Pro', serif !important;
+}
+
 .card-body h4 {
     font-size: small !important;
     color: #04203c;
@@ -56,6 +61,11 @@ header,
     font-size: large !important;
 }
 
+.card-text {
+    font-family: 'Crimson Pro', serif !important;
+    font-size: 18px;
+}
+
 .card-img-top {
     width: 781px;
     height: 200px;
@@ -64,6 +74,16 @@ header,
 .success {
     margin-top: 280px !important;
     margin-bottom: 500px;
+}
+
+.blog-grid {
+    transition: transform .2s;
+}
+
+.blog-grid:hover {
+    transform: scale(1.1); /* (110% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    background: #195190FF ;
+    color:#A2A2A1FF;
 }
 
 .success img {
@@ -77,13 +97,13 @@ header,
     font-weight: bold;
 }
 
-.display-3 {
-    color: #195190FF !important;
-}
+/*.display-3 {*/
+/*    color: #195190FF !important;*/
+/*}*/
 
-.subtext-header {
-    color: #195190FF !important;
-}
+/*.subtext-header {*/
+/*    color: #195190FF !important;*/
+/*}*/
 
 @media (max-width: 650px) {
     .jarallax {
@@ -109,6 +129,7 @@ header,
     }
     .card-title {
         font-size: large !important;
+        color:#195190FF !important;
     }
     .ml-5 {
         margin-left: 0 !important;
@@ -876,8 +897,13 @@ nav {
     transition: .5s;
 }
 
+hr.hr-is {
+    border-top: 1.5px solid #195190FF !important;
+}
+
 nav.bluej {
-    background: #01024d;
+    background: #195190FF;
+    color: #A2A2A1FF !important;
     height: 80px;
     padding: 10px 50px;
 }
@@ -954,7 +980,8 @@ section.content {
         z-index: 1;
     }
     nav.bluej {
-        background: #20247b;
+        background: #195190FF;
+        color: #A2A2A1FF !important;
         height: 80px;
         padding: 10px 8px;
         margin-top: 0px;

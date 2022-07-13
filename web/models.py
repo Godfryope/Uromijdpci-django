@@ -8,7 +8,7 @@ from django.urls import reverse
 
 # adding the Project model
 class Project(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=200)
     overview = RichTextUploadingField(blank=True, null=True)
     projectTitle = RichTextUploadingField(blank=True, null=True)
     projectBrief = RichTextUploadingField(blank=True, null=True)
