@@ -1,50 +1,32 @@
 {% load static %}
 
-<!--SCRIPTS-->
+<!-- 
+    Essential Scripts
+    =====================================-->
 
-<script type="text/javascript" src="{% static 'js/all.js' %}"></script>
-<!--JQuery-->
-<script type="text/javascript" src="{% static 'js/jquery-3.4.0.min.js' %}"></script>
 
-<!--Bootstrap tooltips-->
-<script type="text/javascript" src="{% static 'js/popper.min.js' %} "></script>
+	<!-- Main jQuery -->
+	<script src="{% static 'plugins/jquery/jquery.js' %}"></script>
+	<script src="js/contact.js"></script>
+	<!-- Bootstrap 4.3.1 -->
+	<script src="{% static 'plugins/bootstrap/js/popper.js' %} "></script>
+	<script src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %} "></script>
+	<!--  Magnific Popup-->
+	<script src="{% static 'plugins/magnific-popup/dist/jquery.magnific-popup.min.js' %} "></script>
+	<!-- Slick Slider -->
+	<script src="{% static 'plugins/slick-carousel/slick/slick.min.js' %} "></script>
+	<!-- Counterup -->
+	<script src="{% static 'plugins/counterup/jquery.waypoints.min.js' %} "></script>
+	<script src="{% static 'plugins/counterup/jquery.counterup.min.js' %} "></script>
 
-<!--Bootstrap core JavaScript-->
-<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %} "></script>
+	<!-- Google Map -->
+	<script src="{% static 'plugins/google-map/map.js' %} "></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
+		<!-- MDB -->
+	<script
+	type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"
+	></script>
 
-<!--MDB core JavaScript-->
-<script type="text/javascript" src="{% static 'js/mdb.min.js' %} "></script><div class="hiddendiv common"></div>
-
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-
-<script>
-  //Animation init
-  new WOW().init();
-
-  //Modal
-  $('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').focus()
-  })
-
-  // Material Select Initialization
-  $(document).ready(function () {
-    $('.mdb-select').material_select();
-  });
-
-</script>
-<script type="text/javascript">
-  $(window).on('scroll',function(){
-      if($(window).scrollTop()){
-          $('nav').addClass('bluej');
-      }
-      else{
-          $('nav').removeClass('bluej');
-      }
-  })
-/*menu button onclick function*/
-$(document).ready(function(){
-          $('.menu h4').click(function(){
-              $("nav ul").toggleClass("active")
-      })
-      })
-</script>
+	<script src="{% static 'js/script.js' %} "></script>

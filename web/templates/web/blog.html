@@ -1,0 +1,63 @@
+{% load static %}
+
+<section id="blog" class="section latest-blog bg-2">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7 text-center">
+                <div class="section-title">
+                    <span class="h6 text-color">Latest News</span>
+                    <h2 class="mt-3 content-title text-white">Latest articles to enrich knowledge</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            {% for list in blog_data %}
+            <div class="col-lg-4 col-md-6 mb-5">
+                <div class="card bg-transparent border-0">
+                    <img src="{{ list.image.url }}" alt="" style="height: 250px;" class="img-fluid rounded">
+
+                    <div class="card-body mt-2">
+                        <div class="blog-item-meta">
+                            <a class="text-white-50 ml-2">
+                                <i class="fa fa-user mr-2"></i>admin
+                            </a>
+                        </div>
+
+                        <h3 class="mt-3 lh-36">
+                            <a href="{{ list.get_absolute_url }}" target="_blank" class="text-white ">
+                                {{ list.title }}
+                            </a>
+                        </h3>
+                        <p class="mt-1 mb-5 lh-36 ">
+                            <a class="text-white ">
+                                {{ list.overview | truncatechars:100  | safe }}
+                            </a>
+                        </p>
+
+                        <a href="{{ list.get_absolute_url }}"
+                            class="btn btn-small btn-solid-border btn-round-full text-white">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-6 text-center">
+                <nav class="navigation pagination d-inline-block">
+                    <div class="nav-links text-white">
+                        {% if page_obj.has_previous %}
+                        <a class="prev page-numbers text-white" href="?page={{ page_obj.previous_page_number }}">Prev</a>
+                        {% endif %}
+                        <span aria-current="page" class="page-numbers text-white current">page {{ page_obj.number }}</span>
+                        {% comment %} <a class="page-numbers text-white-50" href="#">2</a> {% endcomment %}
+                        {% if page_obj.has_next %}
+                        <a class="next page-numbers text-white" href="?page={{ page_obj.next_page_number }}">Next</a>
+                        {% comment %} <a class="next page-numbers text-white" href="?page={{ page_obj.paginator.num_pages }}">Last</a> {% endcomment %}
+                        {% endif %}
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>

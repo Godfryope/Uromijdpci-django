@@ -1,4 +1,13 @@
-{% extends "web/base.html" %} {% load i18n %} {% load account socialaccount %} {% load crispy_forms_tags %} {% load static %} {% block head_title %}{% trans "Sign In" %}{% endblock %} {% block content %}
+{% extends "web/base.html" %} 
+{% load i18n %} 
+{% load account socialaccount %} 
+{% load crispy_forms_tags %} 
+{% load static %} 
+
+{% block head_title %}
+    {% trans "Sign In" %}
+{% endblock %} 
+{% block content %}
 
 <div class="bg-others m-0">
     <div class="wrapper">

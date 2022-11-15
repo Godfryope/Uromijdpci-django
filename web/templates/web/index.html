@@ -5,47 +5,29 @@
 {% block content %}
 
     <!--Navigation & Intro-->
-    <header>
+    <header class="navigation">
 
+      {% include 'web/top-head.html' %}
       {% include 'web/navbar.html' %}
-
-
-      {% include 'web/intro_section.html' %}
-
 
     </header>
     <!--Navigation & Intro-->
 
     <!--Main content-->
-    <main style="background: white;">
+    <div class="main-wrapper ">
 
-      <div class="container">
-
-        {% include 'web/about.html' %}
-
-        <hr>
-
-        {% include 'web/goals.html' %}
-
-      </div>
-
-      <hr>
-
+      {% include 'web/title.html' %}
+      {% include 'web/about.html' %}
+      {% include 'web/about-info.html' %}
+      {% include 'web/counter.html' %}
       {% include 'web/projects.html' %}
-
-      <hr>
-
-      {% include 'web/streak.html' %}
-
-      <hr>
-      {% include 'web/message_us.html' %}
-
-      <hr>
-
+      {% include 'web/cta.html' %}
       {% include 'web/team.html' %}
+      {% include 'web/blog.html' %}
+      {% include 'web/streak.html' %}
+      {% include 'web/contact.html' %}
+      {% include 'web/map.html' %}
+      {% include 'web/copyright.html' %}
 
-    </main>
-    <!--Main content-->
-
-    {% include 'web/footer.html' %}
+    </div>
 {% endblock content %}

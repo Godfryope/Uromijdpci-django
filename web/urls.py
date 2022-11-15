@@ -1,11 +1,13 @@
 from django.urls import path
-from .views import contactView, successView, ProjectDetailView, ProjectCreateView, ProjectDeleteView, ProjectUpdateView
+from .views import HomeView,BlogDetailView,BlogCreateView,BlogDeleteView,BlogUpdateView,SearchResultsView,successView
 
 urlpatterns = [
-    path('', contactView, name='home'),
-    path('details/<int:pk>', ProjectDetailView.as_view(), name='details'),
-    path('success', successView, name='success' ),
-    path('proj/new/', ProjectCreateView.as_view(), name='proj_new'),
-    path('<pk>/edit/',ProjectUpdateView.as_view(), name='proj_edit'),
-    path('<pk>/delete/', ProjectDeleteView.as_view(), name='proj_delete'),
+    path('', HomeView.as_view(), name='home'),
+    path('<slug:slug>', BlogDetailView.as_view(), name='details'),
+    path('proj/new/', BlogCreateView.as_view(), name='proj_new'),
+    path('<slug>/edit/',BlogUpdateView.as_view(), name='proj_edit'),
+    path('<slug>/delete/', BlogDeleteView.as_view(), name='proj_delete'),
+    path("search/", SearchResultsView.as_view(), name="search_results"),
+    # path("contact/", contactView, name="contact"),
+    path("success/", successView.as_view(), name="success"),
 ]

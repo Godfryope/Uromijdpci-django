@@ -96,10 +96,10 @@ INSTALLED_APPS = [
     # 'allauth.socialaccount.providers.frontier',
     # 'allauth.socialaccount.providers.fxa',
     # 'allauth.socialaccount.providers.gitea',
-    # 'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.github',
     # 'allauth.socialaccount.providers.gitlab',
     # 'allauth.socialaccount.providers.globus',
-    # 'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.google',
     # 'allauth.socialaccount.providers.gumroad',
     # 'allauth.socialaccount.providers.hubic',
     # 'allauth.socialaccount.providers.instagram',
@@ -163,25 +163,35 @@ INSTALLED_APPS = [
     # 'allauth.socialaccount.providers.feishu',
 ]
 
-SITE_ID = 1
+SITE_ID = 2
 
 # allout login settings
 LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = '/'
 # AUTH_USER_MODEL = 'LocalUser.UserModel's
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# config/settings.py
+# DEFAULT_FROM_EMAIL = "info@uromijdpci.org"
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = False
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'elolengodfrey@gmail.com'
+EMAIL_HOST_PASSWORD = 'Precious_elolen1'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+
 
 # Provider specific settings
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
-        # For each OAuth based provider, either add a ``SocialApp``
-        # (``socialaccount`` app) containing the required client
-        # credentials, or list them here:
-        'APP': {
-            'client_id': '123',
-            'secret': '456',
-            'key': ''
-        }
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+        'OAUTH_PKCE_ENABLED': True,
     }
 }
 
@@ -248,13 +258,6 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 # LOGIN_REDIRECT_URL = 'home'
 # LOGOUT_REDIRECT_URL = 'home'
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_USE_TLS = False
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_HOST_USER = 'elolengodfrey@gmail.com'
-# EMAIL_HOST_PASSWORD = 'mljbedavcqzykotm'
-# EMAIL_PORT = 465
-# EMAIL_USE_SSL = True
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
