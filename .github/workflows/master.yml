@@ -14,6 +14,6 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.2
       with:
-        server: www.gopetech.com
+        server: gopetech.com
         username: ${{ secrets.ftp_username }}
         password: ${{ secrets.ftp_password }}
