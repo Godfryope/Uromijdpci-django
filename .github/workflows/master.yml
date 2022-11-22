@@ -17,3 +17,4 @@ jobs:
         server: gopetech.com
         username: ${{ secrets.ftp_username }}
         password: ${{ secrets.ftp_password }}
+        timeout: 600000
