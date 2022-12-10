@@ -1,6 +1,5 @@
 {% extends 'web/base.html' %}
 {% load static %}
-{% load social_share %}
 
 
 
@@ -58,10 +57,6 @@
                     <div class="tag-option mt-5 clearfix">      
 
                         <ul class="float-right list-inline">
-                            <li class="list-inline-item"> Share: </li>
-                            {% post_to_facebook object_or_url %}
-                            {% post_to_linkedin object_or_url %}
-                            {% post_to_telegram "New Song: " object_or_url %}
                             <li class="list-inline-item"><a href="" target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
                             <li class="list-inline-item"><a href="#" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
                             <li class="list-inline-item"><a href="#" target="_blank"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a></li>

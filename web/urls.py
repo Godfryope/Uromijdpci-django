@@ -3,7 +3,7 @@ from .views import HomeView,BlogDetailView,BlogCreateView,BlogDeleteView,BlogUpd
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
-    path('<slug:slug>', BlogDetailView.as_view(), name='details'),
+    path('blog/<slug:slug>', BlogDetailView.as_view(), name='details'),
     path('proj/new/', BlogCreateView.as_view(), name='proj_new'),
     path('<slug>/edit/',BlogUpdateView.as_view(), name='proj_edit'),
     path('<slug>/delete/', BlogDeleteView.as_view(), name='proj_delete'),
